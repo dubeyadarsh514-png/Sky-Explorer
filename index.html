@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Explorer</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-plane-departure"></i>
+            <span>SkyExplorer</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#flight-search">Search</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#comparison">Compare</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="btn btn-outline">Sign In</button>
+            <button class="btn btn-primary">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Slide 1: Hero -->
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Find the Best Flight Deals Worldwide</h1>
+            <p class="hero-subtitle">Compare flight prices between famous destinations and explore travel information.</p>
+            <div class="hero-buttons">
+                <a href="#flight-search" class="btn btn-primary btn-large">Search Flights</a>
+                <a href="#destinations" class="btn btn-secondary btn-large">Explore Destinations</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Slide 2: Flight Search -->
+    <section id="flight-search" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Search Flights</h2>
+            
+            <div class="search-card glassmorphism">
+                <form id="searchForm" class="search-form">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-location-dot"></i> From</label>
+                        <select id="searchFrom" required>
+                            <option value="">Select Origin</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="London">London</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Paris">Paris</option>
+                            <option value="New York">New York</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Tokyo">Tokyo</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-location-crosshairs"></i> To</label>
+                        <select id="searchTo" required>
+                            <option value="">Select Destination</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="London">London</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Paris">Paris</option>
+                            <option value="New York">New York</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Tokyo">Tokyo</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-calendar-day"></i> Travel Date</label>
+                        <input type="date" id="searchDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-users"></i> Passengers</label>
+                        <input type="number" id="searchPassengers" min="1" max="10" value="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                </form>
+            </div>
+
+            <!-- Search Result Container -->
+            <div id="searchResult" class="result-container hidden">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Popular Destinations -->
+    <section id="destinations" class="section">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="destinations-grid" id="destinationsGrid">
+                
+                <div class="dest-card">
+                    <img src="paris_destination_1784049789787.png" alt="Paris" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">France</span>
+                        <h3 class="dest-title">Paris</h3>
+                        <p class="dest-desc">The city of light, love, and iconic landmarks.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $450</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="dubai_destination_1784049807707.png" alt="Dubai" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">UAE</span>
+                        <h3 class="dest-title">Dubai</h3>
+                        <p class="dest-desc">Modern architecture and luxury shopping.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $300</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" alt="London" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">UK</span>
+                        <h3 class="dest-title">London</h3>
+                        <p class="dest-desc">Historic sites mixed with modern culture.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $500</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="tokyo_destination_1784049831236.png" alt="Tokyo" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">Japan</span>
+                        <h3 class="dest-title">Tokyo</h3>
+                        <p class="dest-desc">A bustling metropolis balancing tradition and tech.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $650</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="singapore_destination.png" alt="Singapore" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">Singapore</span>
+                        <h3 class="dest-title">Singapore</h3>
+                        <p class="dest-desc">A pristine island city-state of the future.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $400</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="bali_destination.png" alt="Bali" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">Indonesia</span>
+                        <h3 class="dest-title">Bali</h3>
+                        <p class="dest-desc">Beautiful beaches and spiritual retreats.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $350</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" alt="New York" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">USA</span>
+                        <h3 class="dest-title">New York</h3>
+                        <p class="dest-desc">The city that never sleeps. Arts, food, and culture.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $380</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" alt="Sydney" class="dest-img">
+                    <div class="dest-info">
+                        <span class="dest-country">Australia</span>
+                        <h3 class="dest-title">Sydney</h3>
+                        <p class="dest-desc">Stunning harbor, beaches, and vibrant lifestyle.</p>
+                        <div class="dest-meta">
+                            <span class="dest-price">From $700</span>
+                            <button class="btn btn-primary dest-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Featured Airlines -->
+    <section id="airlines" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Featured Airlines</h2>
+            <div class="airlines-grid" id="airlinesGrid">
+                
+                <div class="airline-card">
+                    <i class="fa-solid fa-plane airline-icon"></i>
+                    <h3 class="airline-name">Emirates</h3>
+                    <div class="airline-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.8</span>
+                    </div>
+                    <div class="airline-details">
+                        <p>Popular Routes: 150+</p>
+                        <p>Avg Price: High</p>
+                    </div>
+                </div>
+                
+                <div class="airline-card">
+                    <i class="fa-solid fa-plane-up airline-icon"></i>
+                    <h3 class="airline-name">Singapore Airlines</h3>
+                    <div class="airline-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.9</span>
+                    </div>
+                    <div class="airline-details">
+                        <p>Popular Routes: 130+</p>
+                        <p>Avg Price: High</p>
+                    </div>
+                </div>
+
+                <div class="airline-card">
+                    <i class="fa-solid fa-plane-circle-check airline-icon"></i>
+                    <h3 class="airline-name">Qatar Airways</h3>
+                    <div class="airline-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.8</span>
+                    </div>
+                    <div class="airline-details">
+                        <p>Popular Routes: 160+</p>
+                        <p>Avg Price: High</p>
+                    </div>
+                </div>
+
+                <div class="airline-card">
+                    <i class="fa-solid fa-plane-departure airline-icon"></i>
+                    <h3 class="airline-name">IndiGo</h3>
+                    <div class="airline-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.2</span>
+                    </div>
+                    <div class="airline-details">
+                        <p>Popular Routes: 100+</p>
+                        <p>Avg Price: Low</p>
+                    </div>
+                </div>
+
+                <div class="airline-card">
+                    <i class="fa-solid fa-plane-arrival airline-icon"></i>
+                    <h3 class="airline-name">Air India</h3>
+                    <div class="airline-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span>4.0</span>
+                    </div>
+                    <div class="airline-details">
+                        <p>Popular Routes: 90+</p>
+                        <p>Avg Price: Medium</p>
+                    </div>
+                </div>
+
+                <div class="airline-card">
+                    <i class="fa-solid fa-plane airline-icon"></i>
+                    <h3 class="airline-name">British Airways</h3>
+                    <div class="airline-rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.5</span>
+                    </div>
+                    <div class="airline-details">
+                        <p>Popular Routes: 180+</p>
+                        <p>Avg Price: Medium</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Flight Comparison -->
+    <section id="comparison" class="section">
+        <div class="container">
+            <h2 class="section-title">Flight Comparison</h2>
+
+            <div class="table-container glassmorphism">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Airline</th>
+                            <th>Price</th>
+                            <th>Duration</th>
+                            <th>Stops</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparisonBody">
+                        <tr>
+                            <td><strong>IndiGo</strong></td>
+                            <td class="table-price">₹18,500</td>
+                            <td>3h 45m</td>
+                            <td>Non-stop</td>
+                            <td class="table-rating"><i class="fa-solid fa-star"></i> 4.2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Air India</strong></td>
+                            <td class="table-price">₹21,000</td>
+                            <td>4h 10m</td>
+                            <td>1 Stop</td>
+                            <td class="table-rating"><i class="fa-solid fa-star"></i> 4.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Emirates</strong></td>
+                            <td class="table-price">₹28,000</td>
+                            <td>3h 55m</td>
+                            <td>Non-stop</td>
+                            <td class="table-rating"><i class="fa-solid fa-star"></i> 4.8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vistara</strong></td>
+                            <td class="table-price">₹20,500</td>
+                            <td>3h 50m</td>
+                            <td>Non-stop</td>
+                            <td class="table-rating"><i class="fa-solid fa-star"></i> 4.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SpiceJet</strong></td>
+                            <td class="table-price">₹17,800</td>
+                            <td>5h 20m</td>
+                            <td>1 Stop</td>
+                            <td class="table-rating"><i class="fa-solid fa-star"></i> 3.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Travel Information -->
+    <section id="info" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Travel Information & Tips</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon"><i class="fa-brands fa-cc-visa"></i></div>
+                    <h3>Visa Information</h3>
+                    <p>Check entry requirements and visa processing times for your chosen destination.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-cloud-sun"></i></div>
+                    <h3>Weather</h3>
+                    <p>Find the best time to visit based on seasonal weather patterns and climates.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                    <h3>Currency</h3>
+                    <p>Understand exchange rates, accepted cards, and cash requirements.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-language"></i></div>
+                    <h3>Language</h3>
+                    <p>Learn a few basic phrases to help you connect with the locals easily.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-plane-arrival"></i></div>
+                    <h3>Airport Guide</h3>
+                    <p>Navigate terminals, lounges, and transfer procedures smoothly.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-train-subway"></i></div>
+                    <h3>Local Transport</h3>
+                    <p>Discover the best ways to get around your destination via public transport.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Travel Gallery -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title">Travel Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="paris_destination_1784049789787.png" alt="Paris"></div>
+                <div class="gallery-item"><img src="dubai_destination_1784049807707.png" alt="Dubai"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" alt="London"></div>
+                <div class="gallery-item"><img src="tokyo_destination_1784049831236.png" alt="Tokyo"></div>
+                <div class="gallery-item"><img src="bali_destination.png" alt="Bali"></div>
+                <div class="gallery-item"><img src="singapore_destination.png" alt="Singapore"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" alt="New York"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" alt="Sydney"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" alt="Resort"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80" alt="Mountains"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beach"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80" alt="Sunset"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Contact (Now slide 8) -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fa-solid fa-envelope"></i> support@skyexplorer.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</p>
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Aviation Way, Sky City</p>
+                </div>
+                <form id="contactForm" class="contact-form glassmorphism">
+                    <div class="input-group">
+                        <input type="text" id="contactName" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="contactEmail" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="contactMessage" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p id="contactSuccess" class="success-msg hidden">Message sent successfully!</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-plane-departure text-primary"></i>
+                    <span class="text-white">SkyExplorer</span>
+                </div>
+                <p>Your ultimate companion for finding the best flight deals and exploring the world.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#flight-search">Search Flights</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#comparison">Compare Airlines</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkyExplorer. All rights reserved.</p>
+        </div>
+        <button id="backToTop" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
