@@ -16,8 +16,3 @@ SkyExplorer is a modern, responsive, and beautifully designed flight price explo
 - **Vanilla JavaScript:** DOM manipulation and basic search array filtering.
 - **FontAwesome:** For lightweight, scalable icons.
 
-## 🚀 How to Run
-Since this project uses pure HTML/CSS/JS, there is no installation required!
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/SkyExplorer.git
