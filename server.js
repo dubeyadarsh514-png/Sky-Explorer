@@ -8,8 +8,11 @@ const app = express();
 
 app.use(express.json());
 
-// Serve frontend files locally
+// Serve static frontend files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve root files as fallback
+app.use(express.static(__dirname));
 
 // API routes
 app.use('/api', apiRoutes);

@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const fallbackDestinations = [
-        { id: 1, city: "Paris",     country: "France",    price: "₹34,500", desc: "The city of light, love, and iconic landmarks.", image: "paris_destination_1784049789787.png" },
-        { id: 2, city: "Dubai",     country: "UAE",       price: "₹9,800",  desc: "Modern architecture and luxury shopping.", image: "dubai_destination_1784049807707.png" },
+        { id: 1, city: "Paris",     country: "France",    price: "₹34,500", desc: "The city of light, love, and iconic landmarks.", image: "/images/paris_destination_1784049789787.png" },
+        { id: 2, city: "Dubai",     country: "UAE",       price: "₹9,800",  desc: "Modern architecture and luxury shopping.", image: "/images/dubai_destination_1784049807707.png" },
         { id: 3, city: "London",    country: "UK",        price: "₹28,500", desc: "Historic sites mixed with modern culture.", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" },
-        { id: 4, city: "Tokyo",     country: "Japan",     price: "₹22,500", desc: "A bustling metropolis balancing tradition and tech.", image: "tokyo_destination_1784049831236.png" },
-        { id: 5, city: "Singapore", country: "Singapore", price: "₹17,500", desc: "A pristine island city-state of the future.", image: "singapore_destination.png" },
-        { id: 6, city: "Bali",      country: "Indonesia", price: "₹18,200", desc: "Beautiful beaches and spiritual retreats.", image: "bali_destination.png" },
+        { id: 4, city: "Tokyo",     country: "Japan",     price: "₹22,500", desc: "A bustling metropolis balancing tradition and tech.", image: "/images/tokyo_destination_1784049831236.png" },
+        { id: 5, city: "Singapore", country: "Singapore", price: "₹17,500", desc: "A pristine island city-state of the future.", image: "/images/singapore_destination.png" },
+        { id: 6, city: "Bali",      country: "Indonesia", price: "₹18,200", desc: "Beautiful beaches and spiritual retreats.", image: "/images/bali_destination.png" },
         { id: 7, city: "New York",  country: "USA",       price: "₹28,500", desc: "The city that never sleeps. Arts, food, and culture.", image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" },
         { id: 8, city: "Sydney",    country: "Australia", price: "₹52,000", desc: "Stunning harbor, beaches, and vibrant lifestyle.", image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" }
     ];
@@ -343,6 +343,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Helper to format/normalize destination image URLs
+    function getDestinationImageUrl(img) {
+        if (!img) return '/images/bali_destination.png';
+        if (img.startsWith('http://') || img.startsWith('https://')) return img;
+        if (img.startsWith('/images/')) return img;
+        if (img.startsWith('/')) return img;
+        return `/images/${img}`;
+    }
+
     // ========================================================
     // SECTION 2: LOAD DESTINATIONS
     // ========================================================
@@ -365,9 +374,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         grid.innerHTML = '';
         dests.forEach(dest => {
+            const imgSrc = getDestinationImageUrl(dest.image);
             const card = `
                 <div class="dest-card" data-city="${dest.city}">
-                    <img src="${dest.image}" alt="${dest.city}" class="dest-img" loading="lazy">
+                    <img src="${imgSrc}" alt="${dest.city}" class="dest-img" loading="lazy" onerror="this.onerror=null; this.src='/images/bali_destination.png';">
                     <div class="dest-info">
                         <span class="dest-country">${dest.country}</span>
                         <h3 class="dest-title">${dest.city}</h3>

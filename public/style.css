@@ -188,7 +188,7 @@ a {
 /* Hero Section */
 #hero {
   height: 100vh;
-  background: url("hero_background_1784049773727.png") no-repeat center center/cover;
+  background: url("/images/hero_background_1784049773727.png") no-repeat center center/cover;
   position: relative;
   display: flex;
   align-items: center;

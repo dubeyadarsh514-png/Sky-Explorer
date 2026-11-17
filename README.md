@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ✈️ SkyExplorer - Full-Stack Flight Price Explorer
 
 SkyExplorer is a modern, responsive full-stack flight exploration and price comparison platform built with **Node.js**, **Express**, and vanilla **HTML5 / CSS3 / JavaScript**.
@@ -94,23 +93,3 @@ SkyExplorer/
    ```
    http://localhost:3000
    ```
-=======
-# SkyExplorer ✈️ 🌍
-
-SkyExplorer is a modern, responsive, and beautifully designed flight price explorer website. It was built completely from scratch to demonstrate a premium user interface and core web development skills without relying on any external libraries or frameworks (No React, No Bootstrap, No Tailwind).
-
-## 🌟 Features
-- **Premium UI/UX:** Built with modern design principles including Glassmorphism, smooth scrolling, and hover animations.
-- **Pure Vanilla Tech Stack:** 100% pure HTML, CSS, and Vanilla JavaScript.
-- **Flight Search Logic:** An interactive search form that matches origin and destination cities to display flight deals.
-- **Flight Comparison:** A static, clean comparison table for top airlines.
-- **Responsive Layout:** Works flawlessly on desktops, tablets, and mobile devices using CSS Grid and Flexbox.
-- **Zero Dependencies:** No `npm` packages, no bulky frameworks. Just clean, fast, and beginner-friendly code.
-
-## 🛠️ Technologies Used
-- **HTML5:** Semantic and structured markup.
-- **CSS3:** Custom styling, CSS Grid, Flexbox, transitions, and hardcoded theme colors for simplicity.
-- **Vanilla JavaScript:** DOM manipulation and basic search array filtering.
-- **FontAwesome:** For lightweight, scalable icons.
-
->>>>>>> 410f68597477b7eee43d349e7e0bfd4d6d878468
